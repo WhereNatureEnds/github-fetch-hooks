@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Form } from 'semantic-ui-react';
 
 function App() {
 	const [ name, setName ] = useState('');
@@ -14,9 +15,14 @@ function App() {
 	return (
 		<div>
 			<div className="navbar">Github Search</div>
-      <div className="search">
-        
-      </div>
+			<div className="search">
+				<Form>
+					<Form.Group>
+						<Form.Input placeholder="Search Github User" name="name" />
+						<Form.Button contenct="Submit" />
+					</Form.Group>
+				</Form>
+			</div>
 		</div>
 	);
 }
