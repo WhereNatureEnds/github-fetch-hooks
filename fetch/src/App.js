@@ -14,9 +14,18 @@ function App() {
 
 	useEffect(() => {
 		fetch('https://api.github.com/users/example').then((res) => res.json()).then((data) => {
-			console.log(data);
+			getData(data);
 		});
 	}, []);
+
+	const getData = ({ name, login, followers, following, public_repos, avatar }) => {
+		setName(name);
+		setUsername(login);
+		setFollowers(followers);
+		setFollowing(following);
+		setRepos(public_repos);
+		setAvatar(avatar_url);
+	};
 
 	return (
 		<div>
@@ -31,18 +40,27 @@ function App() {
 			</div>
 			<div className="card">
 				<Card>
-					<Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+					<Image src={avatar} wrapped ui={false} />
 					<Card.Content>
-						<Card.Header>Matthew</Card.Header>
-						<Card.Meta>
-							<span className="date">Joined in 2015</span>
-						</Card.Meta>
-						<Card.Description>Matthew is a musician living in Nashville.</Card.Description>
+						<Card.Header>{name}</Card.Header>
+						<Card.Header>{userName}</Card.Header>
 					</Card.Content>
 					<Card.Content extra>
 						<a>
 							<Icon name="user" />
-							22 Friends
+							{followers} Followers
+						</a>
+					</Card.Content>
+					<Card.Content extra>
+						<a>
+							<Icon name="user" />
+							{repos} Repos
+						</a>
+					</Card.Content>
+					<Card.Content extra>
+						<a>
+							<Icon name="user" />
+							{following} Following
 						</a>
 					</Card.Content>
 				</Card>
