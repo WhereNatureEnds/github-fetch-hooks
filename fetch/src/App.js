@@ -14,6 +14,9 @@ function App() {
 	return (
 		<div>
 			<div className="navbar">Github Search</div>
+      <div className="search">
+        
+      </div>
 		</div>
 	);
 }
