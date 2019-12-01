@@ -27,13 +27,23 @@ function App() {
 		setAvatar(avatar_url);
 	};
 
+	const handleSearch = (e) => {
+		setUserInput(e.target.value);
+	};
+
+	const handleSubmit = () => {
+		fetch(`https://api.github.com/users/${userInput}`).then((res) => res.json()).then((data) => {
+			getData(data);
+		});
+	};
+
 	return (
 		<div>
 			<div className="navbar">Github Search</div>
 			<div className="search">
-				<Form>
+				<Form onSubmit={handleSubmit}>
 					<Form.Group>
-						<Form.Input placeholder="Search Github User" name="name" />
+						<Form.Input placeholder="Search Github User" name="name" onChange={handleSearch()} />
 						<Form.Button contenct="Search" />
 					</Form.Group>
 				</Form>
