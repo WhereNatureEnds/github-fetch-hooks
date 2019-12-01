@@ -18,7 +18,7 @@ function App() {
 		});
 	}, []);
 
-	const getData = ({ name, login, followers, following, public_repos, avatar }) => {
+	const getData = ({ name, login, followers, following, public_repos, avatar_url }) => {
 		setName(name);
 		setUsername(login);
 		setFollowers(followers);
@@ -37,6 +37,7 @@ function App() {
 				setError(data.message);
 			} else {
 				getData(data);
+				setError(null);
 			}
 		});
 	};
@@ -47,8 +48,8 @@ function App() {
 			<div className="search">
 				<Form onSubmit={handleSubmit}>
 					<Form.Group>
-						<Form.Input placeholder="Search Github User" name="name" onChange={handleSearch()} />
-						<Form.Button contenct="Search" />
+						<Form.Input placeholder="Search Github User" name="name" onChange={handleSearch} />
+						<Form.Button content="Search" />
 					</Form.Group>
 				</Form>
 			</div>
