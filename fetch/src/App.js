@@ -33,7 +33,11 @@ function App() {
 
 	const handleSubmit = () => {
 		fetch(`https://api.github.com/users/${userInput}`).then((res) => res.json()).then((data) => {
-			getData(data);
+			if (data.message) {
+				setError(data.message);
+			} else {
+				getData(data);
+			}
 		});
 	};
 
