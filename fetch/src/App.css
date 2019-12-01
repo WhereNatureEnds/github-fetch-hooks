@@ -2,3 +2,15 @@
   padding: 20px;
   background-color: antiquewhite;
 }
+
+.search {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
